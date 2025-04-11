@@ -1,6 +1,6 @@
 extends Container
 
-@onready var card = preload("res://Scenes/cardHolder.png")
+@onready var card = preload("res://CardHolder.tscn")
 var startPosition
 var cardHighlighted = false
 
@@ -15,4 +15,14 @@ func _on_mouse_exited():
 
 
 func _on_gui_input(event):
-	pass # Replace with function body.
+	if(event is InputEventMouseButton) and (event.button_index == 1):
+		if event.button_mask == 1:
+			
+			if cardHighlighted:
+				var cardTemp = card.instantiate()
+				get_tree().get_root().get_node("Board/CardHolder").add_child(cardTemp)
+				Game.cardSelected = true
+				if cardHighlighted:
+					self.hide()
+			elif event.button_mask == 0:
+				pass

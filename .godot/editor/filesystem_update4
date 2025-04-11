@@ -1,2 +1,4 @@
-res://Card.tscn
+res://CardHolder.tscn
 res://Card.gd
+res://board.tscn
+res://Card.tscn

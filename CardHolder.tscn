@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr1738dfxemxc"]
+
+[ext_resource type="Texture2D" uid="uid://bktweokmpmmep" path="res://Assets/cardBacks.png" id="2_nsvyb"]
+
+[sub_resource type="GDScript" id="GDScript_8qowe"]
+script/source = "extends Container
+
+var cardHeld = \"\"
+
+func _process(delta):
+	self.global_position = get_global_mouse_position()
+	
+"
+
+[node name="Card" type="Container"]
+custom_minimum_size = Vector2(105, 136)
+offset_left = -54.0
+offset_top = -65.0
+offset_right = 51.0
+offset_bottom = 71.0
+script = SubResource("GDScript_8qowe")
+
+[node name="cardBacks" type="Sprite2D" parent="."]
+position = Vector2(51, 60)
+texture = ExtResource("2_nsvyb")
