@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkqt80whpho5"]
+
+[ext_resource type="Script" uid="uid://df4sv2dnr0lgb" path="res://CardContainer.gd" id="1_psm7c"]
+[ext_resource type="PackedScene" uid="uid://dwbyme0afkhtk" path="res://Card.tscn" id="2_8l818"]
+
+[node name="Board" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CardContainer" type="HBoxContainer" parent="UI"]
+offset_left = 302.0
+offset_top = 404.0
+offset_right = 781.0
+offset_bottom = 596.0
+script = ExtResource("1_psm7c")
+
+[node name="Container" parent="UI" instance=ExtResource("2_8l818")]
+offset_left = 28.0
+offset_top = 125.0
+offset_right = 68.0
+offset_bottom = 165.0
+
+[node name="CardHolder" type="Node" parent="."]
+
+[connection signal="mouse_entered" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/CardContainer" to="UI/CardContainer" method="_on_mouse_exited"]
