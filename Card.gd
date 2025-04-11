@@ -23,6 +23,14 @@ func _on_gui_input(event):
 				get_tree().get_root().get_node("Board/CardHolder").add_child(cardTemp)
 				Game.cardSelected = true
 				if cardHighlighted:
-					self.hide()
+					self.get_child(0).hide()
 			elif event.button_mask == 0:
-				pass
+				if !Game.mouseOnPlacement:
+					cardHighlighted = false
+					self.get_child(0).show()
+				else:
+					self.queue_free()
+					get_node("../../CardPlacement").placeCard()
+				for i in get_tree().get_root().get_node("Board/CardHolder").get_child_count():
+					get_tree().get_root().get_node("Board/CardHolder").get_child(i).queue_free()				
+				Game.cardSelected = false

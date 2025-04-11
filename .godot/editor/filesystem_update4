@@ -2,3 +2,7 @@ res://CardHolder.tscn
 res://Card.gd
 res://board.tscn
 res://Card.tscn
+res://CardPlacement.gd
+res://CardPlacement.tscn
+res://CardOnBoard.tscn
+res://CardContainer.gd
